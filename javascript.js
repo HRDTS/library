@@ -22,17 +22,19 @@ unfoldButton.addEventListener("click", () => {
 
 let myLibrary = [];
 
-function Book(bookTitle, bookAuthor, bookPages, bookRead) {
-  this.title = bookTitle
-  this.author = bookAuthor
-  this.pages = bookPages + " pages"
-  this.read = bookRead
-  
+class Book {
+  constructor(bookTitle, bookAuthor, bookPages, bookRead) {
+    this.bookTitle = bookTitle;
+    this.bookAuthor = bookAuthor;
+    this.bookPages = bookPages;
+    this.bookRead = bookRead;
+  }
 }
 
 function addBookToLibrary(pushBook) {
   myLibrary.push(pushBook)
 }
+
 
 
 // --------------------------------------------------------------------------------
@@ -50,17 +52,21 @@ let displayFunctie = function() {
   let bookAuthor = document.getElementById("bookAuthor").value
   let bookPages = document.getElementById("bookPages").value
   let bookRead = document.getElementById("bookRead").value
-  bookCreation = new Book(bookTitle, bookAuthor, bookPages, bookRead)
+  let bookCreation = new Book(bookTitle, bookAuthor, bookPages, bookRead)
   myLibrary.push(bookCreation)
+  console.log(myLibrary[0].bookTitle)
+  
 
   const bookDiv = document.createElement("div");
   bookDiv.setAttribute("id", "bookID" + [counter])
   let textDiv = document.createElement("p")
   bookDiv.appendChild(textDiv);
   let lastArray = myLibrary[myLibrary.length - 1]
-  textDiv.innerHTML = "Book Title: " + lastArray.title +  "<br /> Book author: " + lastArray.author + "<br /> Book Pages: " + lastArray.pages +
-  "<br /> Reading status: " + lastArray.read
+  textDiv.innerHTML = "Book Title: " + lastArray.bookTitle +  "<br /> Book author: " + lastArray.bookAuthor + "<br /> Book Pages: " + lastArray.bookPages +
+  "<br /> Reading status: " + lastArray.bookRead
   container.appendChild(bookDiv)
+  console.log(lastArray.bookTitle)
+
 
   const deleteButton = document.createElement("button")
   deleteButton.textContent = "Delete from library";
