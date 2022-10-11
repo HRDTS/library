@@ -14,16 +14,16 @@
 
     <form class="form" id="form" onsubmit="displayFunctie(); return false">
     <label for="bookTitle">Book Title:</label>
-    <input type="text" name="bookTitle" id="bookTitle">
+    <input type="text" name="bookTitle" id="bookTitle" required>
     
     <label for="bookAuthor">Book Author:</label>
-    <input type="text" name="bookAuthor" id="bookAuthor">
+    <input type="text" name="bookAuthor" id="bookAuthor" required>
 
     <label for="bookPages">Book Pages:</label>
-    <input type="text" name="bookPages" id="bookPages">
+    <input type="number" name="bookPages" id="bookPages" min="1" required>
 
     <label for="bookRead">Book Read?:</label>
-    <input type="text" name="bookRead" id="bookRead">
+    <input type="text" name="bookRead" id="bookRead" required>
     
     <button type="submit">Submit</button>
     </form>
